@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Datos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      html {font-family: sans-serif; text-align: center}
+      body {display: inline-block; text-align: left}
+      *:required {border: thin solid blue}
+      footer {font-size: small}
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Primer programa en GitHub</h1>
+    </header>
+    <form id="forma" action="javascript:;">
+      <p><em>El borde azul indica obligatorio</em></p>
+      <p>
+        <label accesskey="B">
+          Boleta<br>
+          <input name="boleta" type="text" autofocus pattern=".{1,30}"
+                 required maxlength="10" size="33"
+                 placeholder="10 caracteres">
+        </label>
+        <br><output id="salidaBoleta"></output>
+      </p>
+      <p>
+        <label accesskey="N">
+          Nombre<br>
+          <input name="nombre" type="text" autofocus pattern=".{1,30}"
+                 required maxlength="30" size="33"
+        </label>
+        <br><output id="salidaNombre"></output>
+      </p>
+      <p>
+        <label accesskey="G">
+          Grupo<br>
+          <input name="grupo" type="text" required list="grupos">
+        </label>
+        <br><output id="salidaGrupo"></output>
+      </p>
+      <p>
+        <label accesskey="M">
+          Materia<br>
+          <input name="materia" type="text" autofocus pattern=".{1,30}"
+                 required maxlength="20" size="33"
+        </label>
+        <br><output id="salidaMateria"></output>
+      </p>
+      <p>
+        <label accesskey="F">
+          Fecha<br>
+          <input name="fecha" type="text" autofocus pattern=".{1,30}"
+                 required maxlength="20" size="33"
+        </label>
+        <br><output id="salidaFecha"></output>
+      </p>
+      <p>
+        <input type="submit" value="Procesar" accesskey="P">
+      </p>
+       <br>
+		<output Id="salida"></output>
+		</br>
+    </form>
+
+    <datalist id="grupos">
+      <option value="3CM50">
+	    <option value="3CM51">
+      <option value="3CM52">
+      <option value="3CM53">
+      <option value="3CM54">
+      <option value="3CM55">
+      <option value="3CV50">
+      <option value="3CV51">
+      <option value="3CV52">
+      <option value="3CV53">
+      <option value="3CV54">
+      <option value="3CV55">
+    </datalist>
+<script >
+"use strict";
+var forma = document.getElementById("forma"),
+    salida = document.getElementById("salida");
+forma.addEventListener("submit", Datos, false);
+function Datos (){     //Top-Level  //Bubbling
+   var boleta = forma["boleta"].value.trim(),
+       nombre = forma ["nombre"].value.trim(),
+       grupo = forma ["grupo"].value.trim(),
+       materia = forma ["materia"].value.trim(),
+       fecha = forma ["fecha"].value.trim();
+	salida.textContent = "Alumno: " + nombre + ",  Numero de boleta: " + boleta  + ",  Materia: "  + materia + ",  Grupo: " + grupo + ",  Fecha: " + fecha ;
+}
+	function myFunction() { 
+            let txt = document.getElementById("salida"); 
+            txt.style.textAlign = "salida"; 
+	} 
+	</script>
+ </body>
+    <footer>
+      <br>
+      Copyright 2021 César Francisco Vargas Salazar
+    </br>
+    </footer>
+</html>
